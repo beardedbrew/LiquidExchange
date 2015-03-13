@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ombud - Design</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<!-- To use minified css, uncomment this next line and uncomment the sass-min task in gulpfile -->
+		<!-- <link rel="stylesheet" href="/src/stylesheets/css/style.min.css"> -->
+		<link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/master/animate.min.css">
+		<link rel="stylesheet" href="/src/stylesheets/css/style.css">
+	</head>
+	<body>
+		<!-- Design Goes Here -->
+		<section class="ptl mtl">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 col-md-push-3">
+						<div class="logo">Market Bar</div>
+						<!-- ko foreach: products -->
+						<div class="product clearfix" data-bind="click: buy">
+							<header class="clearfix pull-left">
+								<img data-bind="attr:{src: logo}" alt="" style="width: 20px;" class="pull-left mrm img-circle">
+								<h4 data-bind="text: name" class="pull-left man pan"></h4> 
+							</header>
+							<h4 class="pull-right man pan flash animated">
+								<span data-bind="text: numeral(price()).format('$0.00');"></span>
+								<!-- ko if: status() == 'neutral' -->
+									<i class="fa fa-circle-thin text-muted"></i>
+								<!-- /ko -->
+								<!-- ko if: status() == 'up' -->
+									<i class="fa fa-caret-up text-success"></i>
+								<!-- /ko -->
+								<!-- ko if: status() == 'down' -->
+									<i class="fa fa-caret-down text-danger"></i>
+								<!-- /ko -->
+							</h4>
+						</div>
+						<!-- /ko -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Design Goes Here -->
+	</body>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+	<script src="https://cdn.rawgit.com/josdejong/mathjs/master/dist/math.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+	<script src="/src/scripts/app.js"></script>
+	<!-- If not using react, can comment out these next two -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js"></script>
+	<script src="/src/build/app.js"></script>
+</html>
